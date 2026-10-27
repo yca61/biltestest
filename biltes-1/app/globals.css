@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --c-navy: 16 43 70; --c-teal: 0 165 181; --c-accent: 242 164 68; }
+html { scroll-behavior: smooth; }
+body { @apply bg-white font-sans text-ink antialiased; }
+h1, h2, h3, h4 { @apply font-display tracking-tight text-navy; }
+:focus-visible { outline: 2px solid rgb(var(--c-teal)); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-wrap px-5 md:px-8 lg:px-12; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.22em] text-teal; }
+  .btn { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold transition duration-300; }
+  .btn-primary { @apply btn bg-teal text-white hover:bg-navy; }
+  .btn-dark { @apply btn bg-navy text-white hover:bg-teal; }
+  .btn-ghost { @apply btn border border-white/60 text-white hover:bg-white hover:text-navy; }
+  .btn-outline { @apply btn border border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-white; }
+  .prose-site { @apply max-w-none text-[17px] leading-8 text-ink/90; }
+  .prose-site h2 { @apply mt-10 mb-4 text-3xl font-semibold; }
+  .prose-site h3 { @apply mt-8 mb-3 text-2xl font-semibold; }
+  .prose-site p { @apply mb-5; }
+  .prose-site ul { @apply mb-5 list-disc pl-6; }
+  .prose-site ol { @apply mb-5 list-decimal pl-6; }
+  .prose-site a { @apply text-teal underline underline-offset-4; }
+  .prose-site img { @apply my-6 rounded-sm; }
+  .prose-site blockquote { @apply my-6 border-l-4 border-teal pl-5 italic; }
+  .field { @apply w-full rounded-md border border-navy/20 bg-white px-4 py-3 text-base text-ink placeholder:text-ink/40 focus:border-teal; }
+}
+
+/* Açılış ekranı */
+.preloader { animation: pre-out .7s ease 2.1s forwards; }
+.pre-logo { animation: pre-logo 1.2s cubic-bezier(.22,1,.36,1) .15s both; }
+.pre-ring { animation: pre-ring 2.2s ease-out .3s both; }
+.pre-tag { animation: pre-up .9s ease 1s both; }
+.pre-bar { animation: pre-bar 1.9s cubic-bezier(.65,0,.35,1) .2s both; }
+@keyframes pre-logo { from { opacity: 0; transform: scale(.7) rotate(-8deg); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes pre-ring { from { opacity: 0; transform: scale(.6); } 40% { opacity: 1; } to { opacity: 0; transform: scale(1.5); } }
+@keyframes pre-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes pre-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes pre-out { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { .preloader { display: none; } }
+
+/* Kayan şerit ve rozet halkası */
+.marquee-track { animation: marquee 38s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }

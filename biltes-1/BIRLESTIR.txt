@@ -1,0 +1,1 @@
+Bu klasörün içeriğini, diğer klasörle AYNI hedef klasöre (ör. biltes/) kopyalayın; birlikte tam proje olur.
